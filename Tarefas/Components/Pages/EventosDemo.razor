@@ -7,9 +7,17 @@
 <button class="btn btn-primary" @onclick="HandleClick" >Clique Aqui</button>
 <p>Mensagem: <strong>@mensagem</strong></p>
 
+<hr />
+<h4>2. Evento com Expressão Lambda</h4>
+<button class="btn btn-success" @onclick="@(() => mensagemLambda = "Botão verde clicado!")">
+    Clique Aqui
+</button>
+<p>Mensagem Lambda: <strong>@mensagemLambda</strong></p>
+
 
 @code {
     private string mensagem = "Aguardando um clique...";
+    private string mensagemLambda = "Aguardando (lambda)...";
 
     private void HandleClick()
     {
