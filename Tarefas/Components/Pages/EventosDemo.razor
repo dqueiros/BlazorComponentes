@@ -14,14 +14,26 @@
 </button>
 <p>Mensagem Lambda: <strong>@mensagemLambda</strong></p>
 
+<hr />
+<h4>3. Acessando MouseEventArgs</h4>
+<div class="alert alert-info" @onclick="HandleDivClick">
+    Clique em qualquer lugar dentro desta área azul.
+</div>
+<p>@mensagemCoordenadas</p>
 
 @code {
     private string mensagem = "Aguardando um clique...";
     private string mensagemLambda = "Aguardando (lambda)...";
+    private string mensagemCoordenadas = "Clique na área acima.";
 
     private void HandleClick()
     {
         mensagem = $"O botão foi clicado às {DateTime.Now:HH:mm:ss}";
         Console.WriteLine("O método HandleClick foi executado.");
+    }
+
+    private void HandleDivClick(MouseEventArgs e)
+    {
+        mensagemCoordenadas = $"Você clicou nas coordenadas: X = {e.ClientX}, Y = {e.ClientY}";
     }
 }
