@@ -26,11 +26,33 @@
 <BotaoFilho OnClicouNoFilho="HandleCliqueDoFilho"/>
 <p>@mensagemDoFilho</p>
 
+<hr />
+<h4>5. Modificadores de Evento</h4>
+<div class="alert alert-success" @onclick="@(() => logEventos.Add("Evento da DIV externa disparado."))">
+    DIV Externa
+    <div class="alert alert-warning p-3" @onclick="@(() => logEventos.Add("Evento da DIV interna disparado."))">
+        DIV Interna
+        <button class="btn btn-danger" @onclick="HandleBotaoComStop" @onclick:stopPropagation>
+            Clique (com StopPropagation)
+        </button>
+        <button class="btn btn-secondary" @onclick="@(() => logEventos.Add("Evento do botão normal disparado."))">
+            Clique (Normal)
+        </button>
+    </div>
+</div>
+<ul class="mt-2">
+    @foreach (var log in logEventos)
+    {
+        <li>@log</li>
+    }
+</ul>
+
 @code {
     private string mensagem = "Aguardando um clique...";
     private string mensagemLambda = "Aguardando (lambda)...";
     private string mensagemCoordenadas = "Clique na área acima.";
     private string mensagemDoFilho = "Aguardando evento do filho...";
+    private List<string> logEventos = new();
 
     private void HandleClick()
     {
@@ -46,5 +68,10 @@
     private void HandleCliqueDoFilho()
     {
         mensagemDoFilho = "Recebi o evento do componente filho!";
+    }
+
+    private void HandleBotaoComStop()
+    {
+        logEventos.Add("Evento do botão com STOP disparado.");
     }
 }
