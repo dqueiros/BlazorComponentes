@@ -1,0 +1,19 @@
+﻿@page "/eventos-demo"
+@rendermode InteractiveServer
+
+<h3>Demonstração de Eventos</h3>
+
+<h4>1. Evento com Método Nomeado</h4>
+<button class="btn btn-primary" @onclick="HandleClick" >Clique Aqui</button>
+<p>Mensagem: <strong>@mensagem</strong></p>
+
+
+@code {
+    private string mensagem = "Aguardando um clique...";
+
+    private void HandleClick()
+    {
+        mensagem = $"O botão foi clicado às {DateTime.Now:HH:mm:ss}";
+        Console.WriteLine("O método HandleClick foi executado.");
+    }
+}
