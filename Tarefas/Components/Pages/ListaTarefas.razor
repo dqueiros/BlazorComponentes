@@ -1,0 +1,50 @@
+﻿@if (ListaDeTarefas == null)
+{
+    <img src="https://media.giphy.com/media/3oEjI6SIIHBdRxXI40/giphy.gif" />
+    <Aviso Mensagem="Carregando..." />
+}
+else if (!ListaDeTarefas.Any())
+{
+    <Aviso Mensagem="Ainda não existem tarefas..." />
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Ação</th>
+                <th>Data</th>
+                <th>Descriçao</th>
+                <th>Concluida</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in ListaDeTarefas)
+            {
+                <tr>
+                    <td>
+                        <button @onclick="@(() => HandleRemoveTarefa(item.ID))">
+                            <i class="bi bi-trash"></i>
+                        </button>
+                    </td>
+                    <td>@item.DataCriacao</td>
+                    <td>@item.Descricao</td>
+                    <td><input type="checkbox" @bind="item.Concluida" />@item.Concluida</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@code {
+    [Parameter, EditorRequired]
+    public List<Tarefa> ListaDeTarefas { get; set; } = new();
+
+    [Parameter]
+    public EventCallback<Guid> OnRemoverTarefa { get; set; }
+
+    private async Task HandleRemoveTarefa(Guid id)
+    {
+        await OnRemoverTarefa.InvokeAsync(id);
+    }
+}
