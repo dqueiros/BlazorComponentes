@@ -19,18 +19,9 @@ else
             </tr>
         </thead>
         <tbody>
-            @foreach (var item in ListaDeTarefas)
+            @foreach (var tarefaItem in ListaDeTarefas)
             {
-                <tr>
-                    <td>
-                        <button @onclick="@(() => HandleRemoveTarefa(item.ID))">
-                            <i class="bi bi-trash"></i>
-                        </button>
-                    </td>
-                    <td>@item.DataCriacao</td>
-                    <td>@item.Descricao</td>
-                    <td><input type="checkbox" @bind="item.Concluida" />@item.Concluida</td>
-                </tr>
+                <TarefaIndividual TarefaItem="tarefaItem" OnRemoverTarefa="HandleRemoveTarefa" />
             }
         </tbody>
     </table>
