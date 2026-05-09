@@ -4,17 +4,18 @@
 @inject NavigationManager navManager
 
 <PageTitle>Home</PageTitle>
-<Aviso Mensagem="Lista de Tarefas" />
-
-<ListaTarefas ListaDeTarefas="tarefas" OnRemoverTarefa="RemoveTarefa" />
+<Painel>
+    <Aviso Mensagem="Lista de Tarefas" />
+    <ListaTarefas ListaDeTarefas="tarefas" OnRemoverTarefa="RemoveTarefa" />
+</Painel>
 
 @if (tarefas != null)
 {
-    <div class="form-group">
+    <Painel>
         <label>Tarefa</label>
         <input type="Text" placeholder="Informe a tarefa" @bind="novaTarefa" />
         <button class="btn btn-primary" @onclick="AdicionarNovaTarefa">Registrar Tarefa</button>
-    </div>
+    </Painel>
 }
 
 @code {
