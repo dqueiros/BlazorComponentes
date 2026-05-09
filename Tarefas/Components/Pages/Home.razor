@@ -5,7 +5,9 @@
 
 <PageTitle>Home</PageTitle>
 <Painel>
-    <Aviso Mensagem="Lista de Tarefas" />
+    <Aviso>
+        <Conteudo1>Lista de Tarefas</Conteudo1>
+    </Aviso>
     <ListaTarefas ListaDeTarefas="tarefas" OnRemoverTarefa="RemoveTarefa" />
 </Painel>
 
@@ -26,7 +28,9 @@
         //obtem a url base
         var url = navManager.BaseUri + "dados/tarefas.json";
         var resultado = await Http.GetFromJsonAsync<List<Tarefa>>(url);
-        tarefas = resultado ?? new List<Tarefa>();
+        // tarefas = resultado ?? new List<Tarefa>();
+        // tarefas = null!;
+        tarefas = new List<Tarefa>();
     }
 
     private string novaTarefa = "";
