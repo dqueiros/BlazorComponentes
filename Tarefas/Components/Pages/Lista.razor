@@ -1,0 +1,28 @@
+﻿@page "/lista-generica"
+@rendermode InteractiveServer
+@inject HttpClient http
+@inject NavigationManager navManager
+
+<h3>Minhas Tarefas</h3>
+
+<ListaGenerica TItem="Tarefa" Itens="tarefas">
+    <ItemTemplate Context="tarefa">
+        <div>
+            <strong>@tarefa.Descricao</strong> - @(tarefa.Concluida ? "✅" : "❌")
+            <br />
+            <small>Criada em: @tarefa.DataCriacao.ToShortDateString()</small>
+        </div>
+    </ItemTemplate>
+</ListaGenerica>
+
+@code {
+    private List<Tarefa>? tarefas;
+
+    protected override async Task OnInitializedAsync()
+    {
+        //obtem a url base
+        var url = navManager.BaseUri + "Dados/tarefas.json";
+        var resultado = await http.GetFromJsonAsync<List<Tarefa>>(url);
+        tarefas = resultado ?? new List<Tarefa>();
+    }
+}

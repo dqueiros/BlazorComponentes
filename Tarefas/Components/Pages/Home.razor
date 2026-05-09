@@ -28,9 +28,9 @@
         //obtem a url base
         var url = navManager.BaseUri + "dados/tarefas.json";
         var resultado = await Http.GetFromJsonAsync<List<Tarefa>>(url);
-        // tarefas = resultado ?? new List<Tarefa>();
+        tarefas = resultado ?? new List<Tarefa>();
         // tarefas = null!;
-        tarefas = new List<Tarefa>();
+        // tarefas = new List<Tarefa>();
     }
 
     private string novaTarefa = "";
