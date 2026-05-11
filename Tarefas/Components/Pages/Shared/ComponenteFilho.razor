@@ -1,0 +1,9 @@
+﻿<h1 style="@EstiloRecebido"> Componente Filho com estilo do pai</h1>
+<h1>Data recebida do pai : @DataRecebida.ToShortDateString()</h1>
+
+@code {
+    [CascadingParameter]
+    public string? EstiloRecebido { get; set; }
+    [CascadingParameter]
+    public DateTime DataRecebida { get; set; }
+}
