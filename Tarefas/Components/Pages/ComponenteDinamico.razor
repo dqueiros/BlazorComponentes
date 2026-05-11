@@ -1,0 +1,44 @@
+﻿@page "/aula-cascata-dinamica"
+@rendermode InteractiveServer
+
+<h3>Exemplo de Cascata Dinâmica</h3>
+
+<CascadingValue Value="@informacoesTema" IsFixed="true">
+    <div style="border: 2px solid black; padding: 15px;">
+        <h2>Eu sou o componente Pai</h2>
+        <button @onclick="TrocarTema">Trocar Tema</button>
+        <p>Tema atual no Pai: <strong>@informacoesTema.Nome</strong></p>
+        
+        <PainelDeControle />
+    </div>
+</CascadingValue>
+
+@code {
+    private TemaInfo informacoesTema = new TemaInfo
+    {
+        Nome = "dark",
+        CorFundo = "#333",
+        CorTexto = "#FFF"
+    };
+
+    private void TrocarTema()
+    {
+        if (informacoesTema.Nome == "dark")
+        {
+            informacoesTema = new TemaInfo { Nome = "light", CorFundo = "#EEE", CorTexto = "#000" };
+        }
+        else
+        {
+            informacoesTema = new TemaInfo { Nome = "dark", CorFundo = "#333", CorTexto = "#FFF" };
+        }
+        // A mudança no objeto informacoesTema fará com que o Blazor
+        // notifique os componentes filhos que consomem este valor.
+    }
+
+    public class TemaInfo
+    {
+        public string Nome { get; set; } = "light";
+        public string CorFundo { get; set; } = "#EEE";
+        public string CorTexto { get; set; } = "#000";
+    }
+}
