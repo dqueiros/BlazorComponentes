@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tarefas", "Tarefas\Tarefas.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorDataBinding", "BlazorDataBinding\BlazorDataBinding.csproj", "{877FC8B5-1484-4BFE-B233-A11BA62BAD78}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CicloDeVidaComponentes", "CicloDeVidaComponentes\CicloDeVidaComponentes.csproj", "{9493640B-717D-41C6-8D2F-37F54BD68D6A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{877FC8B5-1484-4BFE-B233-A11BA62BAD78}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{877FC8B5-1484-4BFE-B233-A11BA62BAD78}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{877FC8B5-1484-4BFE-B233-A11BA62BAD78}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9493640B-717D-41C6-8D2F-37F54BD68D6A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9493640B-717D-41C6-8D2F-37F54BD68D6A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9493640B-717D-41C6-8D2F-37F54BD68D6A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9493640B-717D-41C6-8D2F-37F54BD68D6A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
