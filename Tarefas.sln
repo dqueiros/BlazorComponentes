@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorDataBinding", "Blazor
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CicloDeVidaComponentes", "CicloDeVidaComponentes\CicloDeVidaComponentes.csproj", "{9493640B-717D-41C6-8D2F-37F54BD68D6A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlazorFormularios", "BlazorFormularios\BlazorFormularios.csproj", "{FD44AEB5-F8DB-4DF8-9E17-4F1541403ADD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{9493640B-717D-41C6-8D2F-37F54BD68D6A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9493640B-717D-41C6-8D2F-37F54BD68D6A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9493640B-717D-41C6-8D2F-37F54BD68D6A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FD44AEB5-F8DB-4DF8-9E17-4F1541403ADD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FD44AEB5-F8DB-4DF8-9E17-4F1541403ADD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FD44AEB5-F8DB-4DF8-9E17-4F1541403ADD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FD44AEB5-F8DB-4DF8-9E17-4F1541403ADD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
