@@ -1,0 +1,34 @@
+﻿@page "/cadastro"
+@using System.ComponentModel.DataAnnotations
+@* //@rendermode None *@
+
+<h3>Cadastro com POST Real (EditForm)</h3>
+
+
+<EditForm Model="@usuario"
+          Action="/cadastro-usuario"
+          Method="post" Enhance>
+
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+
+    <div class="mb-3">
+        <label>Nome</label>
+        <InputText @bind-Value="usuario.Nome" name="Nome" class="form-control" />
+        <ValidationMessage For="@(() => usuario.Nome)" />
+    </div>
+
+    <button class="btn btn-primary">Enviar</button>
+</EditForm>
+
+
+
+@code {
+    Usuario usuario = new();
+
+    public class Usuario
+    {
+        [Required(ErrorMessage = "O nome é obrigatório.")]
+        public string Nome { get; set; } = string.Empty;
+    }
+}

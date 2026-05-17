@@ -8,6 +8,18 @@ builder.Services.AddRazorComponents()
 
 var app = builder.Build();
 
+app.MapPost("/cadastro-usuario", async (HttpRequest request) =>
+{
+    var form = await request.ReadFormAsync();
+    var nome = form["Nome"].ToString();
+
+    return Results.Content($"""
+        <div class="alert alert-success">
+            Usuario {nome} cadastrado com sucesso!
+        </div>
+    """, "text/html");
+});
+
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
 {
